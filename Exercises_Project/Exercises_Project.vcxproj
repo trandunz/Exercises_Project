@@ -123,6 +123,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CNode.cpp" />
+    <ClCompile Include="CSingleLinkList.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CNode.h" />
+    <ClInclude Include="CSingleLinkList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
