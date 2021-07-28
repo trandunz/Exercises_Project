@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="CNode.cpp" />
     <ClCompile Include="CSingleLinkList.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNode.h" />

@@ -1,0 +1,10 @@
+﻿  CNode.cpp
+C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CSingleLinkList.h(8,7): error C2143: syntax error: missing ';' before '*'
+C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CSingleLinkList.h(8,7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CSingleLinkList.h(8,21): error C2238: unexpected token(s) preceding ';'
+C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CNode.cpp(14,2): error C2065: 'm_CfirstNode': undeclared identifier
+  CSingleLinkList.cpp
+C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CNode.h(6,1): error C2504: 'CSingleLinkList': base class undefined
+  Main.cpp
+C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CNode.h(6,1): error C2504: 'CSingleLinkList': base class undefined
+  Generating Code...

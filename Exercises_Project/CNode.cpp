@@ -1,27 +1,46 @@
+#include <iostream>
 #include "CNode.h"
+
 
 CNode::CNode()
 {
-	nextNode = nullptr;
-	data = -1;
+	m_CNextNode = nullptr;
+	m_nData = -1;
+}
+
+//CNode::CNode(CNode* _firstNode)
+//{
+//	m_CNextNode = nullptr;
+//	m_nData = -1;
+//	m_CfirstNode = _firstNode;
+//}
+
+CNode::~CNode()
+{
+	
+	m_CNextNode = nullptr;
+	std::cout << "Destructing Node (" << m_nData << ")" << std::endl;
+	m_nData = -1;
+	delete m_CNextNode;
+	
 }
 
 void CNode::setData(int iData)
 {
-	data = iData;
+	m_nData = iData;
 }
 
 int CNode::getData() const
 {
-	return (data);
+	return (m_nData);
 }
 
 void CNode::setNextNode(CNode* _nextNode)
 {
-	nextNode = _nextNode;
+	m_CNextNode = _nextNode;
 }
 
 CNode* CNode::getNextNode() const
 {
-	return (nextNode);
+	return (m_CNextNode);
 }

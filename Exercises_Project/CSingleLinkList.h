@@ -1,30 +1,38 @@
 #pragma once
+#ifndef _SINGLE_LINKEDLIST_H__
+#define _SINGLE_LINKEDLIST_H__
+
 #include "CNode.h"
 
 class CSingleLinkList
 {
 private:
-	CNode* firstNode;
+	CNode* m_CfirstNode;
+	int m_nNodeCount;
 
 public:
 	CSingleLinkList();
 
 	~CSingleLinkList();
 
-	void insertAtTheFront(int data);
+	void insertAtTheFront(int _data);
 
-	void insertInTheMiddle(int data, int position);
+	void insertInTheMiddle(int _data, int _position);
 
-	void insertAtTheEnd(int data);
+	void insertAtTheEnd(int _data);
 
-	void deleteFromTheFront(int data);
+	void deleteFromTheFront();
 
-	void deleteFromTheMiddle(int data);
+	void deleteFromTheMiddle(int _data);
 
-	void deleteFromTheEnd(int data);
+	void deleteFromTheEnd();
 
-	bool search(int data);
+	void Delete(int _data);
+
+	bool search(int _data);
 
 	void display();
+
 };
 
+#endif
