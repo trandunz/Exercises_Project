@@ -16,42 +16,98 @@ CSingleLinkList::~CSingleLinkList()
 
 void CSingleLinkList::insertAtTheFront(int _data)
 {
-	m_nNodeCount++;
-
-	CNode* CNewNode = new CNode;
-	CNewNode->setNextNode(m_CfirstNode);
-	CNewNode->setData(_data);
-	m_CfirstNode = CNewNode;
-	std::cout << "Inserted at start" << std::endl;
-}
-
-void CSingleLinkList::insertInTheMiddle(int _data, int _position)
-{
-	CNode* CTemp = m_CfirstNode;
-	for (int i = 0; i < m_nNodeCount; i++)
+	switch (m_nNodeCount)
 	{
-		std::cout << CTemp->getData() << std::endl;
-		if (CTemp->getNextNode() != nullptr)
-		{
-			CTemp = CTemp->getNextNode();
-		}
-	}
-	CTemp = nullptr;
-}
-
-void CSingleLinkList::insertAtTheEnd(int _data)
-{
-	if (m_nNodeCount == 0)
+	case 0:
 	{
 		m_nNodeCount++;
 		CNode* CNewNode = new CNode;
 		CNewNode->setNextNode(m_CfirstNode);
 		CNewNode->setData(_data);
 		m_CfirstNode = CNewNode;
-		std::cout << "Inserted at start" << std::endl;
+		std::cout << "Inserted At Start (Frt::No Nodes Found)" << std::endl;
 	}
-	else
+	default:
+		m_nNodeCount++;
+		CNode* CNewNode = new CNode;
+		CNewNode->setNextNode(m_CfirstNode);
+		CNewNode->setData(_data);
+		m_CfirstNode = CNewNode;
+		std::cout << "Inserted at start (Frt::Node " << CNewNode->getData() << ")" << std::endl;
+		break;
+	}
+	
+}
+
+void CSingleLinkList::insertInTheMiddle(int _data)
+{
+	switch (m_nNodeCount)
 	{
+	case 0:
+	{
+		m_nNodeCount++;
+		CNode* CNewNode = new CNode;
+		CNewNode->setNextNode(m_CfirstNode);
+		CNewNode->setData(_data);
+		m_CfirstNode = CNewNode;
+		std::cout << "Inserted At Start (Mid::No Nodes Found)" << std::endl;
+		break;
+	}
+	case 1:
+	{
+		m_nNodeCount++;
+		CNode* CTemp = m_CfirstNode;
+		for (int i = 0; i < (m_nNodeCount / 2) - 1; i++)
+		{
+			if (CTemp->getNextNode() != nullptr)
+			{
+				CTemp = CTemp->getNextNode();
+			}
+		}
+		CNode* CNewNode = new CNode;
+		CNewNode->setNextNode(CTemp->getNextNode());
+		CTemp->setNextNode(CNewNode);
+
+		CTemp = nullptr;
+		std::cout << "Inserted At End (Mid::Only One Node)" << std::endl;
+		break;
+	}
+	default:
+		m_nNodeCount++;
+		CNode* CTemp = m_CfirstNode;
+		for (int i = 0; i < (m_nNodeCount / 2) - 1; i++)
+		{
+			if (CTemp->getNextNode() != nullptr)
+			{
+				CTemp = CTemp->getNextNode();
+			}
+		}
+		CNode* CNewNode = new CNode;
+		CNewNode->setNextNode(CTemp->getNextNode());
+		CTemp->setNextNode(CNewNode);
+
+		CTemp = nullptr;
+		std::cout << "Inserted In The Middle (Mid::Node " << CNewNode->getData() << ")" << std::endl;
+		break;
+	}
+	
+}
+
+void CSingleLinkList::insertAtTheEnd(int _data)
+{
+	switch (m_nNodeCount)
+	{
+	case 0:
+	{
+		m_nNodeCount++;
+		CNode* CNewNode = new CNode;
+		CNewNode->setNextNode(m_CfirstNode);
+		CNewNode->setData(_data);
+		m_CfirstNode = CNewNode;
+		std::cout << "Inserted At Start (End::No Nodes Found)" << std::endl;
+		break;
+	}
+	default:
 		m_nNodeCount++;
 
 		CNode* CNewNode = new CNode;
@@ -65,48 +121,141 @@ void CSingleLinkList::insertAtTheEnd(int _data)
 		}
 		CTemp->setNextNode(CNewNode);
 		CTemp = nullptr;
-		std::cout << "Inserted at end" << std::endl;
+		std::cout << "Inserted At End (End::Node " << CNewNode->getData() << ")" << std::endl;
+		break;
 	}
 }
 
 void CSingleLinkList::deleteFromTheFront()
 {
-	CNode* CTemp = m_CfirstNode;
-	CNode* CSuperTemp = CTemp;
-	CTemp = CTemp->getNextNode();
-	m_CfirstNode = CTemp;
-	CSuperTemp->setNextNode(nullptr);
-	delete CSuperTemp;
-	CSuperTemp = nullptr;
-	CTemp = nullptr;
-	std::cout << "Deleted First Node" << std::endl;
-	m_nNodeCount--;
+	switch (m_nNodeCount)
+	{
+	case 0:
+	{
+		std::cout << "(Frt::No Nodes Found)" << std::endl;
+		break;
+	}
+	case 1:
+	{
+		m_CfirstNode->setNextNode(nullptr);
+		delete m_CfirstNode;
+		m_CfirstNode = nullptr;
+		std::cout << "Deleted First Node (Frt::Only One Node)" << std::endl;
+		m_nNodeCount--;
+		break;
+	}
+	default:
+		CNode* CTemp = m_CfirstNode;
+		CNode* CSuperTemp = CTemp;
+		CTemp = CTemp->getNextNode();
+		m_CfirstNode = CTemp;
+		CSuperTemp->setNextNode(nullptr);
+		std::cout << "Deleted First Node (Frt::Node " << CSuperTemp->getData() << ")" << std::endl;
+		delete CSuperTemp;
+		CSuperTemp = nullptr;
+		CTemp = nullptr;
+		m_nNodeCount--;
+		break;
+	}
+	
 }
 
 void CSingleLinkList::deleteFromTheMiddle(int _data)
 {
+	switch (m_nNodeCount)
+	{
+	case 0:
+	{
+		std::cout << "(Mid::No Nodes Found)" << std::endl;
+		break;
+	}
+	case 1:
+	{
+		m_CfirstNode->setNextNode(nullptr);
+		delete m_CfirstNode;
+		m_CfirstNode = nullptr;
+		std::cout << "Deleted First Node (Mid::Only One Node)" << std::endl;
+		m_nNodeCount--;
+		break;
+	}
+	case 2:
+	{
+		CNode* CTemp = m_CfirstNode;
+
+		while (CTemp->getNextNode()->getNextNode() != nullptr)
+		{
+			CTemp = CTemp->getNextNode();
+		}
+		CNode* CBeforeDelete = CTemp;
+		CTemp = CBeforeDelete->getNextNode();
+		delete CTemp;
+
+		CBeforeDelete->setNextNode(nullptr);
+		CBeforeDelete = nullptr;
+		CTemp = nullptr;
+
+		std::cout << "Deleted End Node (Mid::Only Two Nodes)" << std::endl;
+		m_nNodeCount--;
+		break;
+	}
+	default:
+		m_nNodeCount--;
+		m_CfirstNode->setNextNode(m_CfirstNode->getNextNode()->getNextNode());
+		CNode* CTemp = m_CfirstNode;
+		for (int i = 0; i < (m_nNodeCount / 2) - 1; i++)
+		{
+			if (CTemp->getNextNode() != nullptr)
+			{
+				CTemp = CTemp->getNextNode();
+			}
+		}
+		CTemp->setNextNode(nullptr);
+		std::cout << "Deleted Middle Node (Mid::Node " << CTemp->getData() << ")" << std::endl;
+		delete CTemp;
+		CTemp = nullptr;
+		break;
+	}
 }
 
 void CSingleLinkList::deleteFromTheEnd()
 {
-	CNode* CTemp = m_CfirstNode;
-
-	while (CTemp->getNextNode()->getNextNode() != nullptr)
+	switch (m_nNodeCount)
 	{
-		CTemp = CTemp->getNextNode();
+	case 0:
+	{
+	std::cout << "(End::No Nodes Found)" << std::endl;
+	break;
 	}
-	CNode* CBeforeDelete = CTemp;
+	case 1:
+	{
+		m_CfirstNode->setNextNode(nullptr);
+		delete m_CfirstNode;
+		m_CfirstNode = nullptr;
+		std::cout << "Deleted First Node (End::Only One Node)" << std::endl;
+		m_nNodeCount--;
+		break;
+	}
+	default:
+		CNode* CTemp = m_CfirstNode;
 
-	CTemp = CBeforeDelete->getNextNode();
-	delete CTemp;
+		while (CTemp->getNextNode()->getNextNode() != nullptr)
+		{
+			CTemp = CTemp->getNextNode();
+		}
+		CNode* CBeforeDelete = CTemp;
+		CTemp = CBeforeDelete->getNextNode();
+		std::cout << "Deleted End Node (End::Node " << CTemp->getData() << ")" << std::endl;
+		delete CTemp;
+
+		CBeforeDelete->setNextNode(nullptr);
+		CBeforeDelete = nullptr;
+		CTemp = nullptr;
+
+		
+		m_nNodeCount--;
+		break;
+	}
 	
-
-	CBeforeDelete->setNextNode(nullptr);
-	CBeforeDelete = nullptr;
-	CTemp = nullptr;
-
-	std::cout << "Deleted End Node" << std::endl;
-	m_nNodeCount--;
 }
 
 void CSingleLinkList::Delete(int _data)
@@ -115,74 +264,117 @@ void CSingleLinkList::Delete(int _data)
 	{
 		CNode* CTemp = m_CfirstNode;
 
-		if (CTemp->getData() == _data)
+		switch (m_nNodeCount)
 		{
-			m_CfirstNode = CTemp->getNextNode();
-			CTemp->setNextNode(nullptr);
-			delete CTemp;
-			CTemp = nullptr;
-
-			std::cout << "Deleted Node (" << _data << ")" << std::endl;
+		case 1:
+		{
+			m_CfirstNode->setNextNode(nullptr);
+			delete m_CfirstNode;
+			m_CfirstNode = nullptr;
+			std::cout << "Deleted Node (" << _data << ") (Del::Only One Node)" << std::endl;
 			m_nNodeCount--;
+			break;
 		}
-		else
+		default:
 		{
-			while (CTemp->getNextNode()->getData() != _data && CTemp->getNextNode() != nullptr)
+			if (CTemp->getData() == _data)
 			{
-				CTemp = CTemp->getNextNode();
+				m_CfirstNode = CTemp->getNextNode();
+				CTemp->setNextNode(nullptr);
+				delete CTemp;
+				CTemp = nullptr;
+
+				std::cout << "Deleted Node (" << _data << ")" << std::endl;
+				m_nNodeCount--;
 			}
-			CNode* CBeforeDelete = CTemp;
+			else
+			{
+				while (CTemp->getNextNode()->getData() != _data && CTemp->getNextNode() != nullptr)
+				{
+					CTemp = CTemp->getNextNode();
+				}
+				CNode* CBeforeDelete = CTemp;
 
-			CTemp = CTemp->getNextNode()->getNextNode();
+				CTemp = CTemp->getNextNode()->getNextNode();
 
-			CBeforeDelete->getNextNode()->setNextNode(nullptr);
-			delete CBeforeDelete->getNextNode();
+				CBeforeDelete->getNextNode()->setNextNode(nullptr);
+				delete CBeforeDelete->getNextNode();
 
-			CBeforeDelete->setNextNode(CTemp);
+				CBeforeDelete->setNextNode(CTemp);
 
-			CBeforeDelete = nullptr;
-			CTemp = nullptr;
+				CBeforeDelete = nullptr;
+				CTemp = nullptr;
 
-			std::cout << "Deleted Node (" << _data << ")" << std::endl;
-			m_nNodeCount--;
+				std::cout << "Deleted Node (" << _data << ")" << std::endl;
+				m_nNodeCount--;
+			}
 		}
+			break;
+		}
+		
 
 		
 	}
-	
 }
 
 bool CSingleLinkList::search(int _data)
 {
-	CNode* CTemp = m_CfirstNode;
-	while (CTemp->getData() != _data && CTemp->getNextNode() != nullptr)
+	switch (m_nNodeCount)
 	{
-		CTemp = CTemp->getNextNode();
+	case 0:
+	{
+		std::cout << "Search Failed (Sch::No Nodes Found)" << std::endl;
+		return (false);
+		break;
 	}
+	default:
+	{
+		CNode* CTemp = m_CfirstNode;
+		while (CTemp->getData() != _data && CTemp->getNextNode() != nullptr)
+		{
+			CTemp = CTemp->getNextNode();
+		}
 
-	if (CTemp->getData() == _data)
-	{
-		std::cout << "Search Successful" << std::endl;
-		return(true);
-		
+		if (CTemp->getData() == _data)
+		{
+			std::cout << "Search Successful (Sch::Found Node " << _data << ")" << std::endl;
+			CTemp = nullptr;
+			return(true);
+
+		}
+		else
+		{
+			std::cout << "Search Failed (No Node With Matching Data (" << CTemp->getData() << "))" << std::endl;
+			CTemp = nullptr;
+			return(false);
+		}
 	}
-	else
-	{
-		std::cout << "Search Failed (No Node With Matching Data (" << CTemp->getData() <<  "))" << std::endl;
-		return(false);
+		break;
 	}
 }
 
 void CSingleLinkList::display()
 {
-	CNode* CTemp = m_CfirstNode;
-	for (int i = 0 ; i < m_nNodeCount; i++)
+	switch (m_nNodeCount)
 	{
-		std::cout << CTemp->getData() << std::endl;
-		if (CTemp->getNextNode() != nullptr)
-		{
-			CTemp = CTemp->getNextNode();
-		}
+	case 0:
+	{
+		std::cout << "Display Failed (Dis::No Nodes Found)" << std::endl;
 	}
-	CTemp = nullptr;
+	default:
+	{
+		CNode* CTemp = m_CfirstNode;
+		for (int i = 0; i < m_nNodeCount; i++)
+		{
+			std::cout << CTemp->getData() << std::endl;
+			if (CTemp->getNextNode() != nullptr)
+			{
+				CTemp = CTemp->getNextNode();
+			}
+		}
+		CTemp = nullptr;
+		std::cout << "Display Successful" << std::endl;
+	}
+	}
+	
 }

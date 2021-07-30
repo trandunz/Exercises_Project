@@ -17,7 +17,7 @@ public:
 
 	void insertAtTheFront(int _data);
 
-	void insertInTheMiddle(int _data, int _position);
+	void insertInTheMiddle(int _data);
 
 	void insertAtTheEnd(int _data);
 

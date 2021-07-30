@@ -19,5 +19,9 @@ int main()
 	newLinkList->search(2);
 	newLinkList->display();
 
+	delete newLinkList;
+	newLinkList = nullptr;
+	
+
 	return 0;
 }
