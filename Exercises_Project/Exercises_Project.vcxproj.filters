@@ -24,12 +24,18 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CMatrix4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CSingleLinkList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CMatrix4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
