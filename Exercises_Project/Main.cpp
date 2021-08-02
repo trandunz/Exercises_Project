@@ -4,7 +4,8 @@
 
 enum RUNTYPE
 {
-	LINKLIST,
+	SINGLELINKLIST,
+	DOUBLELINKLIST,
 	MATRIX4
 };
 
@@ -14,7 +15,7 @@ int main()
 {
 	switch (m_eRunType)
 	{
-	case LINKLIST:
+	case SINGLELINKLIST:
 	{
 		CSingleLinkList* newLinkList = new CSingleLinkList;
 
@@ -61,6 +62,10 @@ int main()
 		break;
 	}
 
+	case DOUBLELINKLIST:
+	{
+
+	}
 	default:
 	{
 		break;

@@ -123,12 +123,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CDoubleLinkList.cpp" />
     <ClCompile Include="CMatrix4.cpp" />
     <ClCompile Include="CNode.cpp" />
     <ClCompile Include="CSingleLinkList.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CDoubleLinkList.h" />
     <ClInclude Include="CMatrix4.h" />
     <ClInclude Include="CNode.h" />
     <ClInclude Include="CSingleLinkList.h" />
