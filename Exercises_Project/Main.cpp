@@ -39,36 +39,25 @@ int main()
 
 	case MATRIX4:
 	{
-		CMatrix4* Matrix = new CMatrix4(3,3);
-		CMatrix4* Matrix2 = new CMatrix4(4, 4);
-		CMatrix4* Matrix3 = new CMatrix4(4, 4);
-		Matrix->Start();
-		Matrix->SetElement(1, 1, 1);
-		Matrix->SetElement(1, 2, 2);
-		Matrix->SetElement(1, 3, 3);
-		Matrix->SetElement(2, 1, 4);
-		Matrix->SetElement(2, 2, 5);
-		Matrix->SetElement(2, 3, 6);
-		Matrix->SetElement(3, 1, 7);
-		Matrix->SetElement(3, 2, 8);
-		Matrix->SetElement(3, 3, 9);
+		CMatrix4* MatrixA = new CMatrix4;
+		CMatrix4* MatrixB = new CMatrix4;
+		CMatrix4* Result = new CMatrix4;
+		
+		MatrixA->SetElement(1, 1, 8);
+		MatrixA->SetElement(2, 2, 7);
+		MatrixA->SetElement(3, 3, 6);
+		MatrixA->SetElement(4, 4, 5);
 
-		CMatrix4::Det(Matrix);
-		Matrix->DisplayMatrix();
-		CMatrix4::Transpose(Matrix);
-		Matrix->DisplayMatrix();
-		Matrix2->Start();
-		CMatrix4::Zero(Matrix2);
-		CMatrix4::Identity(Matrix2);
-		Matrix2->DisplayMatrix();
-		Matrix3->Start();
-		Matrix3->SetElement(2, 1, 3);
-		Matrix3->DisplayMatrix();
-		CMatrix4::Equals(Matrix, Matrix3);
-		CMatrix4::Multiply(Matrix, Matrix3);
-		Matrix->DisplayMatrix();
+		/*CMatrix4::Multiply(*MatrixA, *MatrixB, *Result);*/
+		CMatrix4::PrintMatrix(*MatrixA);
+		CMatrix4::Determinant(*MatrixA);
 		
-		
+		delete MatrixA;
+		delete MatrixB;
+		delete Result;
+		MatrixA = nullptr;
+		MatrixB = nullptr;
+		Result = nullptr;
 		break;
 	}
 
@@ -78,6 +67,7 @@ int main()
 	}
 
 	}
+
 
 	return 0;
 }
