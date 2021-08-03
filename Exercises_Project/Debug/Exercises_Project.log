@@ -1,5 +1,2 @@
-﻿  CMatrix4.cpp
-C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CMatrix4.cpp(164,8): error C2372: 'TempMatrix': redefinition; different types of indirection
-C:\Users\trand\Documents\GITHUB\Exercises_Project\Exercises_Project\CMatrix4.cpp(163): message : see declaration of 'TempMatrix'
-  Main.cpp
-  Generating Code...
+﻿  CQueue.cpp
+  Exercises_Project.vcxproj -> C:\Users\trand\Documents\GITHUB\Exercises_Project\Debug\Exercises_Project.exe

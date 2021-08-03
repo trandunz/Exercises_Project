@@ -30,6 +30,12 @@
     <ClCompile Include="CDoubleLinkList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNode.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CDoubleLinkList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

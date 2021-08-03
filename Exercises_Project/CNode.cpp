@@ -23,7 +23,6 @@ CNode::~CNode()
 	m_CNextNode = nullptr;
 	std::cout << "Destructing Node (" << m_nData << ")" << std::endl;
 	m_nData = -1;
-	
 	delete m_CNextNode;
 	delete m_CPrevNode;
 }

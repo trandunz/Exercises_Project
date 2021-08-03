@@ -161,11 +161,11 @@ CMatrix4& CMatrix4::CoFactor(const CMatrix4& _rA, CMatrix4& _rResult)
 {
 	// TODO: insert return statement here
 	CMatrix4* TempMatrix = new CMatrix4();
-	float TempMatrix[3][3] = { _rResult.m_fMatrix[1][1], _rResult.m_fMatrix[1][2], _rResult.m_fMatrix[1][3],
-								_rResult.m_fMatrix[2][1] ,_rResult.m_fMatrix[2][2] ,_rResult.m_fMatrix[2][3], 
-								_rResult.m_fMatrix[3][1] ,_rResult.m_fMatrix[3][2] ,_rResult.m_fMatrix[3][3] };
-	/*TempMatrix->m_fMatrix = TempMatrix;
-	_rResult.m_fMatrix[0][0] = Determinant(TempMatrix);*/
+	//float TempMatrix[3][3] = { _rResult.m_fMatrix[1][1], _rResult.m_fMatrix[1][2], _rResult.m_fMatrix[1][3],
+	//							_rResult.m_fMatrix[2][1] ,_rResult.m_fMatrix[2][2] ,_rResult.m_fMatrix[2][3], 
+	//							_rResult.m_fMatrix[3][1] ,_rResult.m_fMatrix[3][2] ,_rResult.m_fMatrix[3][3] };
+	///*TempMatrix->m_fMatrix = TempMatrix;
+	/*_rResult.m_fMatrix[0][0] = Determinant(TempMatrix);*/
 
 	delete TempMatrix;
 	TempMatrix = nullptr;

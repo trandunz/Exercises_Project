@@ -1,15 +1,19 @@
 #include "CSingleLinkList.h"
 #include "CMatrix4.h"
+#include "CStack.h"
+#include "CQueue.h"
 #include <iostream>
 
 enum RUNTYPE
 {
 	SINGLELINKLIST,
 	DOUBLELINKLIST,
+	STACK,
+	QUEUE,
 	MATRIX4
 };
 
-RUNTYPE m_eRunType = RUNTYPE::MATRIX4;
+RUNTYPE m_eRunType = RUNTYPE::QUEUE;
 
 int main()
 {
@@ -65,6 +69,37 @@ int main()
 	case DOUBLELINKLIST:
 	{
 
+	}
+
+	case STACK:
+	{
+		CStack* newStack = new CStack;
+
+		newStack->Push(1);
+		newStack->Push(5);
+		newStack->Push(4);
+		newStack->Push(3);
+		newStack->Push(2);
+		newStack->Pop(4);
+		newStack->Peek();
+
+		delete newStack;
+		newStack = nullptr;
+
+	}
+
+	case QUEUE:
+	{
+		CQueue* newQueue = new CQueue;
+		newQueue->Enqueue(1);
+		newQueue->Enqueue(5);
+		newQueue->Enqueue(4);
+		newQueue->Enqueue(3);
+		newQueue->Enqueue(2);
+		newQueue->Dequeue(4);
+		newQueue->Peek();
+		delete newQueue;
+		newQueue = nullptr;
 	}
 	default:
 	{

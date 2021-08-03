@@ -6,14 +6,15 @@
 
 class CSingleLinkList
 {
-private:
+protected:
+	bool m_isStack;
 	CNode* m_CfirstNode;
 	int m_nNodeCount;
 
 public:
 	CSingleLinkList();
 
-	~CSingleLinkList();
+	virtual ~CSingleLinkList();
 
 	void insertAtTheFront(int _data);
 
