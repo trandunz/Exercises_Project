@@ -13,7 +13,7 @@ enum RUNTYPE
 	MATRIX4
 };
 
-RUNTYPE m_eRunType = RUNTYPE::QUEUE;
+RUNTYPE m_eRunType = RUNTYPE::MATRIX4;
 
 int main()
 {

@@ -192,7 +192,7 @@ void CMatrix4::PrintMatrix(CMatrix4& _rMatrix)
 		}
 		std::cout << std::endl;
 	}
-	
+	std::cout << std::endl;
 }
 
 void CMatrix4::SetZero()
