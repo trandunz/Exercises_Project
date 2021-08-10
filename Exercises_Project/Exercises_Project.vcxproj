@@ -128,6 +128,7 @@
     <ClCompile Include="CNode.cpp" />
     <ClCompile Include="CQueue.cpp" />
     <ClCompile Include="CSingleLinkList.cpp" />
+    <ClCompile Include="CSort.cpp" />
     <ClCompile Include="CStack.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -137,6 +138,7 @@
     <ClInclude Include="CNode.h" />
     <ClInclude Include="CQueue.h" />
     <ClInclude Include="CSingleLinkList.h" />
+    <ClInclude Include="CSort.h" />
     <ClInclude Include="CStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

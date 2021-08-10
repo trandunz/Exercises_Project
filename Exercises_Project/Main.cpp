@@ -2,6 +2,7 @@
 #include "CMatrix4.h"
 #include "CStack.h"
 #include "CQueue.h"
+#include "CSort.h"
 #include <iostream>
 
 enum RUNTYPE
@@ -10,10 +11,11 @@ enum RUNTYPE
 	DOUBLELINKLIST,
 	STACK,
 	QUEUE,
-	MATRIX4
+	MATRIX4,
+	QUICKSORT,
 };
 
-RUNTYPE m_eRunType = RUNTYPE::MATRIX4;
+RUNTYPE m_eRunType = RUNTYPE::QUICKSORT;
 
 int main()
 {
@@ -101,6 +103,23 @@ int main()
 		delete newQueue;
 		newQueue = nullptr;
 	}
+
+	case QUICKSORT:
+	{
+		/*int Array[8] = { 8,0,7,5,4,3,6,2 };
+		for (int i = 0; i < 8; i++)
+		{
+			std::cout << Array[i] << std::endl;
+		}*/
+		CSort* QuickSort = new CSort(8);
+		QuickSort->QuickSort();
+
+		/*delete[] Array;*/
+		delete QuickSort;
+		/*Array = nullptr;*/
+		QuickSort = nullptr;
+	}
+
 	default:
 	{
 		break;
