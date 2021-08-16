@@ -4,6 +4,8 @@
 #include "CQueue.h"
 #include "CSort.h"
 #include <iostream>
+#include"conio.h"
+#include"BubbleSort.h"
 
 enum RUNTYPE
 {
@@ -13,9 +15,13 @@ enum RUNTYPE
 	QUEUE,
 	MATRIX4,
 	QUICKSORT,
+	BUBBLESORT,
+	INSERTSORT,
+	SELECTIONSORT,
+	RADIXSORT,
 };
 
-RUNTYPE m_eRunType = RUNTYPE::QUICKSORT;
+RUNTYPE m_eRunType = RUNTYPE::SELECTIONSORT;
 
 int main()
 {
@@ -118,15 +124,134 @@ int main()
 		delete QuickSort;
 		/*Array = nullptr;*/
 		QuickSort = nullptr;
+		break;
 	}
 
+	case BUBBLESORT:
+	{
+		std::cout << "Bubble Sort Algorithm" << std::endl;
+		std::cout << "**********************" << std::endl << std::endl;
+		BubbleSortAlgo<int> array(5);
+		array.push(80);
+		array.push(64);
+		array.push(99);
+		array.push(76);
+		array.push(5);
+
+		std::cout << "Before sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl;
+
+		array.BubbleSort();
+
+		std::cout << "After sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl << std::endl;
+
+		_getch();
+		break;
+	}
+	case INSERTSORT:
+	{
+		std::cout << "Insertion Sort Algorithm" << std::endl;
+		std::cout << "**********************" << std::endl << std::endl;
+		BubbleSortAlgo<int> array(5);
+		array.push(80);
+		array.push(64);
+		array.push(99);
+		array.push(76);
+		array.push(5);
+
+		std::cout << "Before sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl;
+
+		array.InsertSort();
+
+		std::cout << "After sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl << std::endl;
+
+		_getch();
+		break;
+	}
+	case SELECTIONSORT:
+	{
+		std::cout << "Selection Sort Algorithm" << std::endl;
+		std::cout << "**********************" << std::endl << std::endl;
+		BubbleSortAlgo<int> array(5);
+		array.push(80);
+		array.push(64);
+		array.push(99);
+		array.push(76);
+		array.push(5);
+
+		std::cout << "Before sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl;
+
+		array.SelectionSort();
+
+		std::cout << "After sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl << std::endl;
+
+		_getch();
+		break;
+	}
+	/*case RADIXSORT:
+	{
+		std::cout << "Selection Sort Algorithm" << std::endl;
+		std::cout << "**********************" << std::endl << std::endl;
+		BubbleSortAlgo<int> array(5);
+		array.push(80);
+		array.push(64);
+		array.push(99);
+		array.push(76);
+		array.push(5);
+
+		std::cout << "Before sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl;
+
+		array.radixsort();
+
+		std::cout << "After sort:";
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << " " << array[i];
+		}
+		std::cout << std::endl << std::endl;
+
+		_getch();
+		break;
+	}*/
 	default:
 	{
 		break;
 	}
-
 	}
-
 
 	return 0;
 }

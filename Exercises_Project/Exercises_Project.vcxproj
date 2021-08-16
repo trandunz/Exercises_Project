@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BubbleSort.cpp" />
     <ClCompile Include="CDoubleLinkList.cpp" />
     <ClCompile Include="CMatrix4.cpp" />
     <ClCompile Include="CNode.cpp" />
@@ -133,6 +134,7 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BubbleSort.h" />
     <ClInclude Include="CDoubleLinkList.h" />
     <ClInclude Include="CMatrix4.h" />
     <ClInclude Include="CNode.h" />
