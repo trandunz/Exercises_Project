@@ -219,7 +219,7 @@ int main()
 	}
 	/*case RADIXSORT:
 	{
-		std::cout << "Selection Sort Algorithm" << std::endl;
+		std::cout << "Radix Sort Algorithm" << std::endl;
 		std::cout << "**********************" << std::endl << std::endl;
 		BubbleSortAlgo<int> array(5);
 		array.push(80);
