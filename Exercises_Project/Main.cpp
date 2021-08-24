@@ -1,11 +1,17 @@
+#include <iostream>
+#include <queue>
+#include <stack>
+#include <vector>
+#include <string>
 #include "CSingleLinkList.h"
 #include "CMatrix4.h"
 #include "CStack.h"
 #include "CQueue.h"
 #include "CSort.h"
-#include <iostream>
 #include"conio.h"
 #include"BubbleSort.h"
+
+using namespace std;
 
 enum RUNTYPE
 {
@@ -19,14 +25,137 @@ enum RUNTYPE
 	INSERTSORT,
 	SELECTIONSORT,
 	RADIXSORT,
+	STD_STACK,
+	STD_QUEUE,
+	STD_VECTOR_ITERATOR,
+	STD_VECTOR_STRINGS
 };
 
 RUNTYPE m_eRunType = RUNTYPE::SELECTIONSORT;
+
+string* ptrToElement(vector<string>* const pVec, int i);
 
 int main()
 {
 	switch (m_eRunType)
 	{
+	case STD_STACK:
+	{
+		stack<int> myStack;
+		for (int i = 1; i <= 10; ++i)
+		{
+			cout << "Pushing " << i << " onto the stack." << endl;
+			myStack.push(i);
+		}
+		while (!myStack.empty())
+		{
+			cout << myStack.top() << " is at the top of the stack, ";
+			cout << "Popping the stack..." << endl;
+			myStack.pop();
+		}
+		cout << endl;
+		int iTemp = 0;
+		cin >> iTemp;
+
+		break;
+	}
+
+	case STD_QUEUE:
+	{
+		queue<int> myQueue;
+		for (int i = 1; i <= 10; ++i)
+		{
+			cout << "Enqueue " << i << " onto the queue." << endl;
+			myQueue.push(i);
+		}
+		while (!myQueue.empty())
+		{
+			cout << myQueue.front() << " is at the front of the queue, ";
+			cout << "Dequeue the front of the queue..." << endl;
+			myQueue.pop();
+		}
+		cout << endl;
+		int iTemp = 0;
+		cin >> iTemp;
+
+		break;
+	}
+
+	case STD_VECTOR_ITERATOR:
+	{
+		// Declare a string vector.
+		vector<string> strPlayersVec;
+		// Declare a string vector iterator.
+		vector<string>::iterator myStringVecIterator;
+		// Add some elements to the vector.
+		strPlayersVec.push_back("Darius");
+		strPlayersVec.push_back("David");
+		strPlayersVec.push_back("Porter");
+		strPlayersVec.push_back("Leon");
+		strPlayersVec.push_back("Mark");
+		strPlayersVec.push_back("Steffan");
+		// This is the old way, which is similar to getting data
+		// out of arrays.
+		cout << endl << endl;
+		cout << "C/C++ Style" << endl;
+		cout << "-----------" << endl;
+		for (unsigned int i = 0; i < strPlayersVec.size(); i++)
+		{
+			cout << strPlayersVec[i] << endl;
+		}
+		// Using the iterator.
+		cout << endl << endl;
+		cout << "STL Iterator Style" << endl;
+		cout << "------------------" << endl;
+		for (myStringVecIterator = strPlayersVec.begin();
+			myStringVecIterator != strPlayersVec.end();
+			myStringVecIterator++)
+		{
+			// Dereference the string vector iterator in a
+			// similiar fashion to how we dereference a pointer.
+			cout << *myStringVecIterator << endl;
+		}
+		int iTemp = 0;
+		cin >> iTemp;
+
+		break;
+	}
+
+	case STD_VECTOR_STRINGS:
+	{
+		// Declare a vector of strings.
+		vector<string> vecInventory;
+		// 'push_back' appends (Inserts) an element to the end of
+		// a vector, allocating memory for it if necessary.
+		vecInventory.push_back("sword");
+		vecInventory.push_back("shield");
+		vecInventory.push_back("armour");
+		// Display string object that the returned pointer points to.
+		cout << "Sending the object pointed to by returned pointer: " << endl;
+		cout << *(ptrToElement(&vecInventory, 0)) << endl << endl;
+		// Assign one pointer to another -- inexpensive assignment.
+		cout << "Assigning the returned pointer to another pointer." << endl;
+		string* pStr = ptrToElement(&vecInventory, 1);
+		cout << "Sending the object pointed to by new pointer to cout.";
+		cout << endl;
+		cout << *pStr << endl << endl;
+		// Copies a string, EXPENSIVE assignment.
+		cout << "Assigning object pointed by pointer to a string object.";
+		cout << endl;
+		string str = *(ptrToElement(&vecInventory, 2));
+		cout << "Sending the new string object to cout." << endl;
+		cout << str << endl << endl;
+		// Alter the string object through a returned pointer.
+		cout << "Altering an object through a returned pointer." << endl;
+		*pStr = "Healing Potion.";
+		cout << "Sending the altered object to cout" << endl;
+		cout << vecInventory[1] << endl;
+		int iTemp = 0;
+		cin >> iTemp;
+
+		break;
+	}
+
 	case SINGLELINKLIST:
 	{
 		CSingleLinkList* newLinkList = new CSingleLinkList;
@@ -157,6 +286,7 @@ int main()
 		_getch();
 		break;
 	}
+
 	case INSERTSORT:
 	{
 		std::cout << "Insertion Sort Algorithm" << std::endl;
@@ -187,6 +317,7 @@ int main()
 		_getch();
 		break;
 	}
+
 	case SELECTIONSORT:
 	{
 		std::cout << "Selection Sort Algorithm" << std::endl;
@@ -217,6 +348,7 @@ int main()
 		_getch();
 		break;
 	}
+
 	/*case RADIXSORT:
 	{
 		std::cout << "Radix Sort Algorithm" << std::endl;
@@ -254,4 +386,11 @@ int main()
 	}
 
 	return 0;
+}
+
+string* ptrToElement(vector<string>* const pVec, int i)
+{
+	// Returns the address of the string in position i of the vector
+	// that pVec points to.
+	return (&((*pVec)[i]));
 }
