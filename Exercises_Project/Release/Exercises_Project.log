@@ -1,0 +1,14 @@
+﻿  BubbleSort.cpp
+  CDoubleLinkList.cpp
+  CMatrix4.cpp
+  CNode.cpp
+  CQueue.cpp
+  CSingleLinkList.cpp
+  CSort.cpp
+  CStack.cpp
+  Main.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 308 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Exercises_Project.vcxproj -> C:\Users\trand\Documents\GITHUB\Exercises_Project\Release\Exercises_Project.exe

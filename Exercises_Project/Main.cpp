@@ -31,7 +31,7 @@ enum RUNTYPE
 	STD_VECTOR_STRINGS
 };
 
-RUNTYPE m_eRunType = RUNTYPE::SELECTIONSORT;
+RUNTYPE m_eRunType = RUNTYPE::MATRIX4;
 
 string* ptrToElement(vector<string>* const pVec, int i);
 
@@ -181,31 +181,15 @@ int main()
 
 	case MATRIX4:
 	{
-		CMatrix4* MatrixA = new CMatrix4;
-		CMatrix4* MatrixB = new CMatrix4;
-		CMatrix4* Result = new CMatrix4;
+		CMatrix4 Test = CMatrix4();
+		Test.TestHarness();
 		
-		MatrixA->SetElement(1, 1, 8);
-		MatrixA->SetElement(2, 2, 7);
-		MatrixA->SetElement(3, 3, 6);
-		MatrixA->SetElement(4, 4, 5);
-
-		/*CMatrix4::Multiply(*MatrixA, *MatrixB, *Result);*/
-		CMatrix4::PrintMatrix(*MatrixA);
-		CMatrix4::Determinant(*MatrixA);
-		
-		delete MatrixA;
-		delete MatrixB;
-		delete Result;
-		MatrixA = nullptr;
-		MatrixB = nullptr;
-		Result = nullptr;
 		break;
 	}
 
 	case DOUBLELINKLIST:
 	{
-
+		break;
 	}
 
 	case STACK:
@@ -222,7 +206,7 @@ int main()
 
 		delete newStack;
 		newStack = nullptr;
-
+		break;
 	}
 
 	case QUEUE:
@@ -237,6 +221,7 @@ int main()
 		newQueue->Peek();
 		delete newQueue;
 		newQueue = nullptr;
+		break;
 	}
 
 	case QUICKSORT:
